@@ -6,6 +6,12 @@ lock '3.1.0'
 
 set :application, 'tuts'
 set :repo_url, 'git@github.com:Vangerdahast/tuts_rails.git'
+set :rvm_ruby_version, '2.0.0-p247'
+
+SSHKit.config.command_map[:rake] = "bundle exec rake"
+
+
+
 
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
@@ -23,43 +29,51 @@ set :scm, :git
 # set :log_level, :debug
 
 # Default value for :pty is false
-# set :pty, true
 
 # Default value for :linked_files is []
 # set :linked_files, %w{config/database.yml}
+set :default_env, { rvm_bin_path: '/usr/local/rvm/bin/rvm' }
+
+set :log_level, :debug
+set :tmp_dir, "/tmp"
+set :rvm_type, :system
+
+# Default value for :pty is false
+# set :pty, true
 
 # Default value for linked_dirs is []
-set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
-set :ssh_options, { :forward_agent => true }
-set :deploy_via, :copy
-
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
 
-# Default value for keep_releases is 5
-set :keep_releases, 5
-
-set :rails_env, :production
-set :unicorn_binary, "/usr/bin/unicorn"
-set :unicorn_config, "#{current_path}/config/unicorn.rb"
-set :unicorn_pid, "#{current_path}/tmp/pids/unicorn.pid"
 
 namespace :deploy do
-  task :start, :roles => :app, :except => { :no_release => true } do
-    run "cd #{current_path} && #{try_sudo} #{unicorn_binary} -c #{unicorn_config} -E #{rails_env} -D"
+
+  %w{stop start restart}.each do |cmd|
+    task cmd.to_sym do
+      on roles(:app) do
+        execute "/etc/init.d/unicorn_#{fetch :application} #{cmd}"
+      end
+    end
   end
-  task :stop, :roles => :app, :except => { :no_release => true } do
-    run "#{try_sudo} kill `cat #{unicorn_pid}`"
+
+  after :published, :restart
+
+  after :restart, :clear_cache do
+    on roles(:web), in: :groups, limit: 3, wait: 10 do
+      # Here we can do anything such as:
+      # within release_path do
+      #   execute :rake, 'cache:clear'
+      # end
+    end
   end
-  task :graceful_stop, :roles => :app, :except => { :no_release => true } do
-    run "#{try_sudo} kill -s QUIT `cat #{unicorn_pid}`"
-  end
-  task :reload, :roles => :app, :except => { :no_release => true } do
-    run "#{try_sudo} kill -s USR2 `cat #{unicorn_pid}`"
-  end
-  task :restart, :roles => :app, :except => { :no_release => true } do
-    stop
-    start
-  end
+
+  # task :bundle_install do
+  #   on roles(:app) do
+  #     within release_path do
+  #       execute :bundle, "--gemfile #{release_path}/Gemfile --binstubs #{shared_path}/bin --without test, development"
+  #     end
+  #   end
+  # end
+
 end

@@ -12,6 +12,9 @@ gem 'sass-rails', '~> 4.0.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 gem 'unicorn-rails'
+gem 'capistrano-rvm'
+gem 'capistrano-bundler', '~> 1.1.2'
+
 # gem 'thin'
 
 
@@ -37,7 +40,8 @@ end
 
 group :development, :test do
   gem "rspec-rails"
-  gem 'capistrano-bundler'
+  gem 'capistrano-rvm'
+  gem 'capistrano-bundler', '~> 1.1.2'
   gem 'capistrano-rails'
   gem 'capybara'
   gem 'selenium-webdriver'

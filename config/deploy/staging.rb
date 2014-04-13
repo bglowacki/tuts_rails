@@ -8,6 +8,11 @@ role :app, %w{deploy@digital}
 role :web, %w{deploy@digital}
 role :db,  %w{deploy@digital}
 
+set :deploy_to, '/home/deploy/apps/backend/staging'
+set :branch, 'master'
+set :rails_env, 'staging'
+set :default_env, { rvm_bin_path: '/usr/local/rvm/bin/rvm' }
+
 # Extended Server Syntax
 # ======================
 # This can be used to drop a more detailed server
@@ -26,14 +31,11 @@ server 'digital', user: 'deploy', roles: %w{web app}
 #    auth_methods: %w(password)
 #  }
 # and/or per server
-# server 'example.com',
-#   user: 'user_name',
-#   roles: %w{web app},
-#   ssh_options: {
-#     user: 'user_name', # overrides user setting above
-#     keys: %w(/home/user_name/.ssh/id_rsa),
-#     forward_agent: false,
-#     auth_methods: %w(publickey password)
-#     # password: 'please use keys'
-#   }
+server 'digital',
+  user: 'deploy',
+  roles: %w{web app},
+  ssh_options: {
+    forward_agent: true,
+    auth_methods: %w(publickey)
+  }
 # setting per server overrides global ssh_options
