@@ -19,7 +19,6 @@ require 'capistrano/rvm'
 # require 'capistrano/chruby'
 require 'capistrano/bundler'
 require 'capistrano/rails'
-require 'capistrano/puma'
 # require 'capistrano/rails/assets'
 # require 'capistrano/rails/migrations'
 

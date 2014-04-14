@@ -1,5 +1,5 @@
 environment = ENV['RACK_ENV'] || ENV['RAILS_ENV'] || 'production'
-root = "/home/apps/backend/staging/current"
+root = "/home/deploy/apps/backend/staging/current"
 pid "#{root}/tmp/pids/unicorn.pid"
 working_directory root
 stderr_path "#{root}/log/unicorn.log"
