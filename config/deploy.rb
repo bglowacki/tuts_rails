@@ -33,6 +33,8 @@ set :default_env, { rvm_bin_path: '/usr/local/rvm/bin/rvm' }
 set :log_level, :debug
 set :tmp_dir, "/tmp"
 set :rvm_type, :system
+set :git_enable_submodules, 1
+
 
 # Default value for :pty is false
 # set :pty, true
@@ -45,21 +47,14 @@ set :rvm_type, :system
 
 namespace :deploy do
 
-  # %w{stop start restart}.each do |cmd|
-  #   task cmd.to_sym do
-  #     on roles(:app) do
-  #       execute "/etc/init.d/unicorn_#{fetch :application} #{cmd}"
-  #     end
-  #   end
-  # end
 
   after :published, :restart
 
-  after :restart, :clear_cache do
+  task :restart do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
       # Here we can do anything such as:
       # within release_path do
-      #   execute :rake, 'cache:clear'
+        execute :bundle, ' exec puma -e production -b unix:///var/run/tuts.sock'
       # end
     end
   end
