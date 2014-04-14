@@ -5,6 +5,7 @@ gem 'rails', '4.0.2'
 gem 'active_model_serializers'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
+gem 'puma'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -12,8 +13,6 @@ gem 'sass-rails', '~> 4.0.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 gem 'unicorn-rails'
-gem 'capistrano-rvm'
-gem 'capistrano-bundler', '~> 1.1.2'
 
 # gem 'thin'
 
@@ -43,6 +42,8 @@ group :development, :test do
   gem 'capistrano-rvm'
   gem 'capistrano-bundler', '~> 1.1.2'
   gem 'capistrano-rails'
+  gem 'capistrano3-puma'
+
   gem 'capybara'
   gem 'selenium-webdriver'
   gem 'factory_girl_rails'

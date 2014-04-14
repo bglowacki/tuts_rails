@@ -8,10 +8,6 @@ set :application, 'tuts'
 set :repo_url, 'git@github.com:Vangerdahast/tuts_rails.git'
 set :rvm_ruby_version, '2.0.0-p247'
 
-SSHKit.config.command_map[:rake] = "bundle exec rake"
-
-
-
 
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
@@ -49,13 +45,13 @@ set :rvm_type, :system
 
 namespace :deploy do
 
-  %w{stop start restart}.each do |cmd|
-    task cmd.to_sym do
-      on roles(:app) do
-        execute "/etc/init.d/unicorn_#{fetch :application} #{cmd}"
-      end
-    end
-  end
+  # %w{stop start restart}.each do |cmd|
+  #   task cmd.to_sym do
+  #     on roles(:app) do
+  #       execute "/etc/init.d/unicorn_#{fetch :application} #{cmd}"
+  #     end
+  #   end
+  # end
 
   after :published, :restart
 
