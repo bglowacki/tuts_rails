@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c4ca3677-d1be-4bba-b344-f85008d83f7f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Capfile" afterPath="$PROJECT_DIR$/Capfile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/unicorn.rb" afterPath="$PROJECT_DIR$/config/unicorn.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/deploy.rb" afterPath="$PROJECT_DIR$/config/deploy.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="backend.iws" />
@@ -57,11 +56,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="deploy.rb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="deploy.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/config/deploy.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="307" max-vertical-offset="1110">
-              <caret line="49" column="22" selection-start-line="49" selection-start-column="22" selection-end-line="49" selection-end-column="22" />
+            <state vertical-scroll-proportion="0.5890411" vertical-offset="307" max-vertical-offset="1110">
+              <caret line="52" column="22" selection-start-line="52" selection-start-column="22" selection-end-line="52" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -77,10 +76,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="unicorn.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="unicorn.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/unicorn.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.01867995" vertical-offset="0" max-vertical-offset="803">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="330">
               <caret line="1" column="21" selection-start-line="1" selection-start-column="21" selection-end-line="1" selection-end-column="21" />
               <folding />
             </state>
@@ -140,10 +139,10 @@
         <option value="$PROJECT_DIR$/config/nginx.conf" />
         <option value="$PROJECT_DIR$/config/locales/unicorn.rb" />
         <option value="$PROJECT_DIR$/config/unicorn_init.sh" />
-        <option value="$PROJECT_DIR$/config/deploy.rb" />
         <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/Capfile" />
         <option value="$PROJECT_DIR$/config/unicorn.rb" />
+        <option value="$PROJECT_DIR$/config/deploy.rb" />
       </list>
     </option>
   </component>
@@ -602,22 +601,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Capfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="480">
-          <caret line="8" column="25" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/deploy.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="307" max-vertical-offset="1110">
-          <caret line="49" column="22" selection-start-line="49" selection-start-column="22" selection-end-line="49" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/unicorn_init.sh">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1335">
@@ -628,8 +611,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/config/unicorn.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.01867995" vertical-offset="0" max-vertical-offset="803">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="330">
           <caret line="1" column="21" selection-start-line="1" selection-start-column="21" selection-end-line="1" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Capfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="480">
+          <caret line="8" column="25" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/deploy.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5890411" vertical-offset="307" max-vertical-offset="1110">
+          <caret line="52" column="22" selection-start-line="52" selection-start-column="22" selection-end-line="52" selection-end-column="22" />
           <folding />
         </state>
       </provider>

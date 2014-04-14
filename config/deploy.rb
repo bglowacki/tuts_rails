@@ -50,7 +50,7 @@ namespace :deploy do
   %w{stop start restart}.each do |cmd|
     task cmd.to_sym do
       on roles(:app) do
-        execute "/etc/init.d/unicorn_init #{cmd}"
+        execute "sudo /etc/init.d/unicorn_init #{cmd}"
       end
     end
   end
