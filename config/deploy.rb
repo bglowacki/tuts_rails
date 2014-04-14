@@ -33,8 +33,7 @@ set :default_env, { rvm_bin_path: '/usr/local/rvm/bin/rvm' }
 set :log_level, :debug
 set :tmp_dir, "/tmp"
 set :rvm_type, :system
-set :git_enable_submodules, 1
-
+set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets public/system}
 
 # Default value for :pty is false
 # set :pty, true
