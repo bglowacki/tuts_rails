@@ -15,7 +15,7 @@ TIMEOUT=${TIMEOUT-60}
 APP_ROOT=/home/deploy/apps/backend/staging/current
 PID=$APP_ROOT/tmp/pids/unicorn.pid
 CMD="cd $APP_ROOT; bundle exec unicorn -D -c $APP_ROOT/config/unicorn.rb -E dev"
-AS_USER=deployer
+AS_USER=deploy
 set -u
 
 OLD_PIN="$PID.oldbin"
